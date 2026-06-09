@@ -5,6 +5,8 @@ client = OpenAI(
     api_key="lm-studio"
 )
 
+# Etapa 3
+
 def retorno_em_json(resenha):
     resposta = client.chat.completions.create(
         model = "google/gemma-3-4b",
@@ -41,5 +43,4 @@ def retorno_em_json(resenha):
         
         temperature = 0.5
     )
-    print(resposta.choices[0].message.content)
     return resposta.choices[0].message.content
