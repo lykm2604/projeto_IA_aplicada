@@ -9,5 +9,5 @@ Foi utilizado o Visual Studio Code para a organização dos arquivos e programa�
 
 ## Recursos
 
-O LLM utilizado foi o **Google Gemma** na sua versão **google/gemma-3-4b**
-Também foi importada a biblioteca **openai** para vincular a IA ao projeto
+O LLM utilizado foi o **Google Gemma** na sua versão **google/gemma-3-4b**.
+Também foi importada a biblioteca **openai** para vincular a IA ao projeto.
