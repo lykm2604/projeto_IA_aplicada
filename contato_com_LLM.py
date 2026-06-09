@@ -1,13 +1,13 @@
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="http://127.0.0.1:1234",
+    base_url="http://127.0.0.1:1234/v1",
     api_key="lm-studio"
 )
 
 def retorno_em_json(resenha):
     resposta = client.chat.completions.create(
-        model = 'gemma-4-e4b',
+        model = "google/gemma-3-4b",
         messages = [
             {
                 "role": "system",
@@ -23,13 +23,13 @@ def retorno_em_json(resenha):
                 '508293$João$This is a positive review for the app, it's very useful and easy to use.'
                 Exemplo de saída:
                 {
-                    'usuario': 'João',
-                    'resenha original': "This is a positive review for the app, it's very useful and easy to use.",
-                    'resenha traduzida': "Esta é uma resenha positiva para o aplicativo, é muito útil e fácil de usar.",
-                    'avaliacao': 'Positiva'
+                    "usuario": "João",
+                    "resenha original": "This is a positive review for the app, it's very useful and easy to use.",
+                    "resenha traduzida": "Esta é uma resenha positiva para o aplicativo, é muito útil e fácil de usar.",
+                    "avaliacao": "Positiva"
                 }
                 
-                Você deve retornar apenas o JSON, sem NENHUM outro testo ou explicação. O JSON deve estar formatado corretamente.
+                Você deve retornar apenas o JSON, sem NENHUM outro testo ou explicação.
                 """
             }
             ,
@@ -38,7 +38,8 @@ def retorno_em_json(resenha):
                 "content": f"Resenha: {resenha}"
             }
         ],
+        
         temperature = 0.5
     )
+    print(resposta.choices[0].message.content)
     return resposta.choices[0].message.content
-
