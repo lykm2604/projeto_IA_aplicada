@@ -13,5 +13,13 @@ lista_de_resenhas_json = []
 
 for resenha in lista_de_resenhas:
     resenha_json = retorno_em_json(resenha)
-    resenha_dict = (resenha_json)
+    resenha_dict = json.loads(resenha_json.replace("```json", "").replace("```", ""))
     lista_de_resenhas_json.append(resenha_dict)
+
+# Etapa 4
+
+from funcoes import avaliacao_resenha
+
+resultado, textos = avaliacao_resenha(lista_de_resenhas_json)
+print(resultado)
+print(textos)
